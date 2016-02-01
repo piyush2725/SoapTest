@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<definitions targetNamespace="http://v41.hpcws.DocPath.com/" name="HPCWSService"
+xmlns="http://schemas.xmlsoap.org/wsdl/"
+xmlns:tns="http://v41.hpcws.DocPath.com/"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<types>
+<xsd:schema targetNamespace="http://v41.hpcws.DocPath.com/">
+<!--<xsd:import namespace="http://v41.hpcws.DocPath.com/"
+schemaLocation="HPCWSService_schema1.xsd"/>-->
+
+</xsd:schema>
+
+<xs:schema version="1.0" targetNamespace="http://v41.hpcws.DocPath.com/"
+xmlns:tns="http://v41.hpcws.DocPath.com/"
+xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Exception" nillable="true" type="tns:exceptionBean"/>
+<xs:element name="cancelJob" nillable="true" type="tns:cancelJob"/>
+<xs:element name="cancelJobResponse" nillable="true"
+type="tns:cancelJobResponse"/>
+<xs:element name="generateDoc" nillable="true" type="tns:generateDoc"/>
+<xs:element name="generateDocResponse" nillable="true"
+type="tns:generateDocResponse"/>
+<xs:element name="getJobDoc" nillable="true" type="tns:getJobDoc"/>
+<xs:element name="getJobDocResponse" nillable="true"
+type="tns:getJobDocResponse"/>
+<xs:element name="getJobStatus" nillable="true" type="tns:getJobStatus"/>
+
+
+<xs:element name="getJobStatusResponse" nillable="true"
+type="tns:getJobStatusResponse"/>
+<xs:element name="isAlive" nillable="true" type="tns:isAlive"/>
+<xs:element name="isAliveResponse" nillable="true"
+type="tns:isAliveResponse"/>
+<xs:element name="sendJobData" nillable="true" type="tns:sendJobData"/>
+<xs:element name="sendJobDataResponse" nillable="true"
+type="tns:sendJobDataResponse"/>
+<xs:complexType name="getJobStatus">
+<xs:sequence>
+<xs:element name="jobID" type="xs:long" />
+<xs:element name="timeout" type="xs:int" />
+<xs:element name="termID" type="xs:string" minOccurs="0" />
+<xs:element name="reserved1" type="xs:string" minOccurs="0" />
+<xs:element name="reserved2" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getJobStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:dpJobResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="dpJobResult">
+<xs:sequence>
+<xs:element name="jobID" type="xs:long"/>
+<xs:element name="output" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="RC" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="exceptionBean">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="generateDoc">
+<xs:sequence>
+<xs:element name="dat" type="xs:base64Binary" minOccurs="0" />
+<xs:element name="codepage" type="xs:string" minOccurs="0" />
+<xs:element name="timeout" type="xs:int" />
+<xs:element name="termID" type="xs:string" minOccurs="0" />
+<xs:element name="cancelOnTimeout" type="xs:boolean" />
+<xs:element name="reserved1" type="xs:string" minOccurs="0" />
+<xs:element name="reserved2" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="generateDocResponse">
+<xs:sequence>
+
+<xs:element name="return" type="tns:dpJobResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getJobDoc">
+<xs:sequence>
+<xs:element name="jobID" type="xs:long" />
+<xs:element name="timeout" type="xs:int" />
+<xs:element name="termID" type="xs:string" minOccurs="0" />
+<xs:element name="cancelOnTimeout" type="xs:boolean" />
+<xs:element name="reserved1" type="xs:string" minOccurs="0" />
+<xs:element name="reserved2" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getJobDocResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:dpJobResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="isAlive">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="isAliveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendJobData">
+<xs:sequence>
+<xs:element name="dat" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="codepage" type="xs:string" minOccurs="0"/>
+<xs:element name="timeout" type="xs:int"/>
+<xs:element name="termID" type="xs:string" minOccurs="0"/>
+<xs:element name="cancelOnTimeout" type="xs:boolean"/>
+<xs:element name="reserved1" type="xs:string" minOccurs="0"/>
+<xs:element name="reserved2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendJobDataResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:dpJobResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cancelJob">
+<xs:sequence>
+<xs:element name="jobID" type="xs:long"/>
+<xs:element name="termID" type="xs:string" minOccurs="0"/>
+<xs:element name="reserved1" type="xs:string" minOccurs="0"/>
+<xs:element name="reserved2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cancelJobResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:dpJobResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+
+
+
+</types>
+<message name="generateDoc">
+<part name="parameters" element="tns:generateDoc"/>
+</message>
+<message name="generateDocResponse">
+<part name="parameters" element="tns:generateDocResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<message name="sendJobData">
+<part name="parameters" element="tns:sendJobData"/>
+</message>
+<message name="sendJobDataResponse">
+<part name="parameters" element="tns:sendJobDataResponse"/>
+</message>
+<message name="getJobStatus">
+<part name="parameters" element="tns:getJobStatus"/>
+</message>
+<message name="getJobStatusResponse">
+<part name="parameters" element="tns:getJobStatusResponse"/>
+</message>
+<message name="cancelJob">
+<part name="parameters" element="tns:cancelJob"/>
+</message>
+<message name="cancelJobResponse">
+<part name="parameters" element="tns:cancelJobResponse"/>
+</message>
+<message name="getJobDoc">
+<part name="parameters" element="tns:getJobDoc"/>
+</message>
+<message name="getJobDocResponse">
+<part name="parameters" element="tns:getJobDocResponse"/>
+</message>
+<message name="isAlive">
+<part name="parameters" element="tns:isAlive"/>
+</message>
+<message name="isAliveResponse">
+<part name="parameters" element="tns:isAliveResponse"/>
+</message>
+<portType name="HPCWS">
+<operation name="generateDoc">
+<input message="tns:generateDoc"/>
+<output message="tns:generateDocResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+<operation name="sendJobData">
+<input message="tns:sendJobData"/>
+<output message="tns:sendJobDataResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+<operation name="getJobStatus">
+<input message="tns:getJobStatus"/>
+<output message="tns:getJobStatusResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+<operation name="cancelJob">
+<input message="tns:cancelJob"/>
+<output message="tns:cancelJobResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+<operation name="getJobDoc">
+<input message="tns:getJobDoc"/>
+<output message="tns:getJobDocResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+<operation name="isAlive">
+<input message="tns:isAlive"/>
+<output message="tns:isAliveResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+</portType>
+<binding name="HPCWSPortBinding" type="tns:HPCWS">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+style="document"/>
+<operation name="generateDoc">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="sendJobData">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="getJobStatus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="cancelJob">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="getJobDoc">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="isAlive">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+</binding>
+<service name="HPCWSService">
+<port name="HPCWSPort" binding="tns:HPCWSPortBinding">
+<soap:address location="http://www.webservicex.com/globalweather.asmx?wsdl"/>
+</port>
+</service>
+</definitions>
